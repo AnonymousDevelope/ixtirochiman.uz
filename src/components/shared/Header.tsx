@@ -11,6 +11,7 @@ import {
 } from "@components/ui/select";
 import type { LangList } from "@/types/language";
 import SmoothLink from "../ui/SmoothLinks";
+import { Link } from "react-router";
 
 const Header = () => {
   const [isDark, setIsDark] = useState(false);
@@ -42,11 +43,11 @@ const Header = () => {
     }
   };
   const navItems = [
-    { href: "#team", label: "Bizning jamoa" },
-    { href: "#mission", label: "Missiya" },
-    { href: "#contact", label: "Aloqa" },
-    { href: "#startup-school", label: "Startup maktabi" },
-    { href: "#blog", label: "Blog" },
+    { href: "/#team", label: "Bizning jamoa" },
+    { href: "/#mission", label: "Missiya" },
+    { href: "/#contact", label: "Aloqa" },
+    { href: "/#startup-school", label: "Startup maktabi" },
+    { href: "/#blog", label: "Blog" },
   ];
   return (
     <header className="fixed top-0 w-full bg-background/90 backdrop-blur-md z-50 border-b border-border">
@@ -55,7 +56,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="text-2xl font-bold gradient-text">
-              Ixtirochiman.uz
+              <Link to={"/"}>Ixtirochiman.uz</Link>
             </div>
           </div>
 

@@ -1,28 +1,16 @@
-import "./App.css";
+// App.tsx
+import { Outlet } from "react-router-dom";
 import Header from "@components/shared/Header";
-import SectionWrapper from "./components/shared/SectionWrapper";
-import {
-  BlogSection,
-  ContactSection,
-  Footer,
-  HeroSection,
-  MissionSection,
-  TeamSection,
-} from "./components/sections";
-import { StartupSchoolSection } from "./components/sections";
+import { Footer } from "./components/sections";
+import "./App.css"
 function App() {
   return (
     <>
       <Header />
-      <HeroSection />
-      <SectionWrapper>
-        <MissionSection />
-        <TeamSection />
-        <StartupSchoolSection />
-        <BlogSection />
-        <ContactSection />
-        <Footer />
-      </SectionWrapper>
+      <main className="min-h-screen">
+        <Outlet />
+      </main>
+      <Footer />
     </>
   );
 }

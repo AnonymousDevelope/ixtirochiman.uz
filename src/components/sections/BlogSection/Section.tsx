@@ -2,7 +2,7 @@
 import BlogHeader from '@/components/shared/BlogHeader';
 import BlogCard from '@/components/shared/BlogCard';
 import ViewAllButton from '@/components/shared/ViewAllButton';
-import { articles } from '@/data/sections/blog.data';
+import { articles } from '@/data/pages/blog/blog.data';
 
 const BlogSection = () => (
   <section
@@ -13,7 +13,7 @@ const BlogSection = () => (
       <BlogHeader />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {articles.map((article) => (
-          <BlogCard key={article.id} {...article} />
+          <BlogCard {...article} isLittle={false}/>
         ))}
       </div>
       <ViewAllButton />

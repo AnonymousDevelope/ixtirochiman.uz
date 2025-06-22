@@ -1,6 +1,7 @@
 // src/components/ui/SmoothLink.tsx
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router';
 
 interface SmoothLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -19,14 +20,14 @@ const SmoothLink: React.FC<SmoothLinkProps> = ({ href, className, children, ...p
   };
 
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       className={cn('cursor-pointer', className)}
       onClick={handleClick}
       {...props}
     >
       {children}
-    </a>
+    </Link>
   );
 };
 

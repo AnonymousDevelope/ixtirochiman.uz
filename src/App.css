@@ -1,0 +1,37 @@
+/* src/styles/global.css */
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #3b82f6, #1d4ed8, #1e40af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar styles */
+body::-webkit-scrollbar {
+  width: 12px; /* Width of vertical scrollbar */
+  height: 12px; /* Height of horizontal scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #4b6cb7;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #3b5ca8;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #4b6cb7 #f1f1f1;
+}

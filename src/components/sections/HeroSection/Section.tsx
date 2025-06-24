@@ -1,4 +1,5 @@
 import { ArrowDown } from "lucide-react";
+import { Link } from "react-router";
 const Section = () => {
   return (
     <section
@@ -17,15 +18,13 @@ const Section = () => {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
             <span className="gradient-text">Innovatsiya</span>
-            <br />
-            <span className="text-white">Bu yerda boshlanadi</span>
           </h1>
 
           <p
             className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto animate-fade-in"
             style={{ animationDelay: "0.2s" }}
           >
-            Toshkent viloyati yoshlar texnoparki - g'oyalar zamonaviy
+            Ohangaron Yoshlar Texnoparki Davlat muassasasi - g'oyalar zamonaviy
             texnologiya, ta'lim va innovatsiya orqali haqiqatga aylanadigan joy.
           </p>
 
@@ -40,12 +39,12 @@ const Section = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in"
             style={{ animationDelay: "0.6s" }}
           >
-            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary hover:bg-primary/90 h-11 rounded-md bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-8 py-3 text-lg blue-glow">
+            <Link to="#mission" className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary hover:bg-primary/90 h-11 rounded-md bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-8 py-3 text-lg blue-glow">
               Sayohatni boshlash
-            </button>
-            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-background h-11 rounded-md border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-blue-900 px-8 py-3 text-lg">
+            </Link>
+            <Link to={"https://www.youtube.com/playlist?list=PL9ujj7vqGHShpkdkADMQNCKvOl6SBnE1p"} target="_blank" className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-background h-11 rounded-md border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-blue-900 px-8 py-3 text-lg">
               Dasturlarni ko'rish
-            </button>
+            </Link>
           </div>
           <div
             className="grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in"

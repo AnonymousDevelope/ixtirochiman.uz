@@ -1,5 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import { Link } from "react-router";
+import SmoothLink from "@/components/ui/SmoothLinks";
 const Section = () => {
   return (
     <section
@@ -39,9 +40,9 @@ const Section = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in"
             style={{ animationDelay: "0.6s" }}
           >
-            <Link to="#mission" className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary hover:bg-primary/90 h-11 rounded-md bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-8 py-3 text-lg blue-glow">
+            <SmoothLink href="#our_services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary hover:bg-primary/90 h-11 rounded-md bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-8 py-3 text-lg blue-glow">
               Sayohatni boshlash
-            </Link>
+            </SmoothLink>
             <Link to={"https://www.youtube.com/playlist?list=PL9ujj7vqGHShpkdkADMQNCKvOl6SBnE1p"} target="_blank" className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-background h-11 rounded-md border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-blue-900 px-8 py-3 text-lg">
               Dasturlarni ko'rish
             </Link>

@@ -13,7 +13,7 @@ const BlogSection = () => (
       <BlogHeader />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {articles.map((article) => (
-          <BlogCard {...article} isLittle={false}/>
+          <BlogCard key={article.id} {...article} isLittle={false}/>
         ))}
       </div>
       <ViewAllButton />

@@ -24,7 +24,7 @@ const Section = () => {
             <FeatureCard key={index} {...feature} />
           ))}
         </div>
-        <div className="mb-12">
+        <div className="mb-12" id="our_services">
           <h3 className="text-3xl font-bold text-center mb-12 text-foreground">
             Bizning xizmatlarimiz
           </h3>

@@ -43,11 +43,11 @@ const Header = () => {
     }
   };
   const navItems = [
-    { href: "/#team", label: "Bizning jamoa" },
-    { href: "/#mission", label: "Missiya" },
-    { href: "/#contact", label: "Aloqa" },
-    { href: "/#startup-school", label: "Startup maktabi" },
-    { href: "/#blog", label: "Blog" },
+    { href: "#team", label: "Bizning jamoa" },
+    { href: "#mission", label: "Missiya" },
+    { href: "#contact", label: "Aloqa" },
+    { href: "#startup-school", label: "Startup maktabi" },
+    { href: "#blog", label: "Blog" },
   ];
   return (
     <header className="fixed top-0 w-full bg-background/90 backdrop-blur-md z-50 border-b border-border">

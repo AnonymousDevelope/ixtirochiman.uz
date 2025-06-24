@@ -64,7 +64,9 @@
     --sidebar-ring: 210 100% 50%;
   }
 }
-
+h1,h2,h3,h4,h5{
+  font-weight: bold;
+}
 @layer base {
   * {
     @apply border-border;

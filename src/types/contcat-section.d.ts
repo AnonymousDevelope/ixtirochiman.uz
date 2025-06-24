@@ -6,3 +6,10 @@ export interface ContactDetail {
   iconBg: string;
   iconColor: string;
 }
+export interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+}

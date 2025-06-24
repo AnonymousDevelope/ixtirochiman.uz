@@ -22,7 +22,7 @@ const BlogPageSlug = () => {
     return <NotFound />;
   }
   return (
-    <div className="bg-tech-darker md:px-[250px] min-h-screen text-white px-4 py-8 md:py-10 scrollbar-custom mt-[50px]">
+    <div className="bg-tech-darker md:px-[100px] min-h-screen text-white px-4 py-8 md:py-10 scrollbar-custom mt-[50px]">
       {/* SEO Metadata */}
       <Helmet>
         <title>{article.title} | Ixtirochiman.uz</title>
@@ -32,7 +32,7 @@ const BlogPageSlug = () => {
         <meta property="og:description" content={article.description} />
         <meta property="og:image" content={article.image} />
       </Helmet>
-      <div className="grid grid-cols-1 gap-[25px] md:grid-cols-[7.5fr_4.5fr]">
+      <div className="grid grid-cols-1 gap-[25px] md:grid-cols-[7.5fr_3.5fr]">
         <article className="max-w-full">
           {/* Article Header */}
           <header className="mb-8">
@@ -49,7 +49,6 @@ const BlogPageSlug = () => {
                 }}
               />
             </div>
-
             {/* Publication date and reading time */}
             <div className="flex items-center gap-4 text-gray-400 mb-4 text-sm">
               {article.date && (
@@ -99,7 +98,6 @@ const BlogPageSlug = () => {
               ))}
             </div>
           )}
-
           {/* Back button */}
           <footer className="flex justify-start">
             <Button asChild variant="default">

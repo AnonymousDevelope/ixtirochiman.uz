@@ -5,6 +5,7 @@ interface SocialLinkProps {
 
 interface TeamMemberProps {
   initials: string;
+  image:string;
   name: string;
   role: string;
   description: string;

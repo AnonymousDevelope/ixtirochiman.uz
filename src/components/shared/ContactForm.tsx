@@ -2,15 +2,23 @@ import React, { useState } from 'react';
 import { Button } from '@components/ui/button';
 import { Input } from '@components/ui/input';
 import { Textarea } from '@components/ui/textarea';
-import { Label } from "@components/ui/label";
-interface FormData {
+import { Label } from '@components/ui/label';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export interface FormData {
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   message: string;
 }
-const ContactForm: React.FC = () => {
+
+interface ContactFormProps {
+  onSend?: (data: FormData) => Promise<boolean> | void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ onSend }) => {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -19,24 +27,68 @@ const ContactForm: React.FC = () => {
     message: '',
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    // Placeholder for form submission logic (e.g., API call)
-    console.log('Form submitted:', formData);
-    // Reset form or show success message as needed
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      message: '',
-    });
+  const isValidForm = (): boolean => {
+    const { firstName, lastName, email, phone, message } = formData;
+
+    if (!firstName.trim()) {
+      toast.warning("Ismingizni kiriting.");
+      return false;
+    }
+    if (!lastName.trim()) {
+      toast.warning("Familiyangizni kiriting.");
+      return false;
+    }
+    if (!email.trim() || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+      toast.warning("To‘g‘ri email kiriting.");
+      return false;
+    }
+    if (!phone.trim() || !/^\+?\d{7,15}$/.test(phone)) {
+      toast.warning("Telefon raqamingiz noto‘g‘ri formatda.");
+      return false;
+    }
+    if (!message.trim()) {
+      toast.warning("Xabar matnini kiriting.");
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async () => {
+    if (!isValidForm()) return;
+
+    setLoading(true);
+    try {
+      if (onSend) {
+        const result = await onSend(formData);
+        if (result === false) {
+          toast.error("❌ Xabar yuborishda xatolik yuz berdi!");
+        } else {
+          toast.success("✅ Xabaringiz muvaffaqiyatli yuborildi!");
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            message: '',
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Send error:", error);
+      toast.error("❌ Server bilan bog'lanishda xatolik yuz berdi.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,10 +101,11 @@ const ContactForm: React.FC = () => {
       <div className="p-6 pt-0 space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
           <div>
-            <Label className="block text-sm  font-medium text-foreground/60 mb-2">
+            <Label htmlFor="firstName" className="block text-sm font-medium text-foreground/60 mb-2">
               First Name
             </Label>
             <Input
+              id="firstName"
               name="firstName"
               placeholder="John"
               value={formData.firstName}
@@ -60,10 +113,11 @@ const ContactForm: React.FC = () => {
             />
           </div>
           <div>
-            <Label className="block text-sm font-medium text-foreground/60 mb-2">
+            <Label htmlFor="lastName" className="block text-sm font-medium text-foreground/60 mb-2">
               Last Name
             </Label>
             <Input
+              id="lastName"
               name="lastName"
               placeholder="Doe"
               value={formData.lastName}
@@ -71,11 +125,12 @@ const ContactForm: React.FC = () => {
             />
           </div>
         </div>
-        <div className=''>
-          <Label className="block text-sm font-medium text-foreground/60 mb-2">
+        <div>
+          <Label htmlFor="email" className="block text-sm font-medium text-foreground/60 mb-2">
             Email
           </Label>
           <Input
+            id="email"
             name="email"
             type="email"
             placeholder="john@example.com"
@@ -84,10 +139,11 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <div>
-          <Label className="block text-sm  font-medium text-foreground/60 mb-2">
+          <Label htmlFor="phone" className="block text-sm font-medium text-foreground/60 mb-2">
             Phone Number
           </Label>
           <Input
+            id="phone"
             name="phone"
             placeholder="+998 90 123 45 67"
             value={formData.phone}
@@ -95,10 +151,11 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <div>
-          <Label className="block text-sm  font-medium text-foreground/60 mb-2">
+          <Label htmlFor="message" className="block text-sm font-medium text-foreground/60 mb-2">
             Message
           </Label>
           <Textarea
+            id="message"
             name="message"
             placeholder="Tell us about your project or how we can help you..."
             rows={5}
@@ -109,9 +166,9 @@ const ContactForm: React.FC = () => {
         <Button
           className="w-full bg-gradient-blue-bg"
           onClick={handleSubmit}
-          variant={"default"}
+          disabled={loading}
         >
-          Send Message
+          {loading ? "Yuborilmoqda..." : "Send Message"}
         </Button>
       </div>
     </div>

@@ -36,7 +36,7 @@ const Section = () => {
         </div>
         <div className="text-center bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
           <h3 className="text-2xl font-bold mb-4 text-foreground">
-            Bizning vizyonimiz
+            Bizning maqsadimiz
           </h3>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             2030 yilga qadar Toshkent viloyatini O'zbekistonning eng yirik

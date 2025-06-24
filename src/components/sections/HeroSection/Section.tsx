@@ -18,7 +18,7 @@ const Section = () => {
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
-            <span className="gradient-text">Innovatsiya</span>
+            <span className="text-blue-300">Innovatsiya</span>
           </h1>
 
           <p
